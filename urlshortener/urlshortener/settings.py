@@ -147,4 +147,5 @@ MAILERS = {
 }
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://url-shortener-1-wyz7.onrender.com",
 ]
