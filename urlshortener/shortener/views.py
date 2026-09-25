@@ -19,8 +19,9 @@ class ShortenURLView(APIView):
             url.short_code = encode_base62(url.id)
             url.save()
 
-            short_url = f"http://127.0.0.1:8000/api/{url.short_code}/"
-
+            short_url = request.build_absolute_uri(
+                f"/api/{url.short_code}/"
+            )
             data = URLSerializer(url).data
             data['short_url'] = short_url
 
