@@ -10,7 +10,7 @@ function Analytics() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/analytics/${code}/`)
+      .get(`${import.meta.env.VITE_API_URL}/api/analytics/${code}/`)
       .then((response) => {
         setData(response.data);
       })

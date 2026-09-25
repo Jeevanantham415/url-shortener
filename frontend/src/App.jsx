@@ -24,9 +24,12 @@ function Home() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/shorten/", {
-        original_url: url,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/shorten/`,
+        {
+          original_url: url,
+        },
+      );
 
       setResult(response.data);
     } catch (error) {
@@ -49,7 +52,7 @@ function Home() {
   const refreshClicks = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/analytics/${result.short_code}/`,
+        `${import.meta.env.VITE_API_URL}/api/analytics/${result.short_code}/`,
       );
 
       setResult((prev) => ({
